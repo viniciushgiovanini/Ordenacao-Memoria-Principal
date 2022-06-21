@@ -1,4 +1,4 @@
-# Algoritmos de Ordenação em Memória Principal
+# Algoritmos de Ordenação em Memória Principal 💻
 
 ## Objetivo
 
