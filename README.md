@@ -8,7 +8,7 @@
 ## Algoritmos
 
 ✅ Quicksort (Palavra)(Java)    
-⬜️ Quicksort (Num)(Java)   
+✅ Quicksort (Num)(Java)   
 ⬜️ Quicksort (Palavra)(C#)  
 ⬜️ Quicksort (Num)(C#)    
 ⬜️ Heapsort (Palavra)(Java)   
