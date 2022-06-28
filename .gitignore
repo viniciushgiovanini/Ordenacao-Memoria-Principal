@@ -29,5 +29,6 @@ replay_pid*
 #my
 helloworld.cs
 /obj/
+/bin/
 *.csproj
 Program.cs
