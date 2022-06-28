@@ -15,7 +15,7 @@ class heapNum {
 
   // FUNCOES DO HEAP
 
-  public static void heapsort(int[] array) {
+  public static int[] heapsort(int[] array) {
     int n = array.length;
     // Alterar o vetor ignorando a posicao zero
     int[] tmp = new int[n + 1];
@@ -38,12 +38,12 @@ class heapNum {
 
     // Alterar o vetor para voltar a posicao zero
     tmp = array;
-    int[] array2 = new int[n];
+    array = new int[n];
     for (int i = 0; i < n; i++) {
-      array2[i] = tmp[i + 1];
+      array[i] = tmp[i + 1];
     }
-    array = array2;
-    System.out.println("Acabou Ordenação do Heap");
+
+    return array;
   }
 
   public static void construir(int tamHeap, int[] array) {
@@ -77,13 +77,17 @@ class heapNum {
 
   public static void main(String[] args) {
     int[] vetor = new int[] { 101, 115, 30, 63, 47, 20 };
-
-    heapsort(vetor);
-
+    int vetor2[] = { 101, 500, 200, 300, 5, 10, 4, 2, 1, 0 };
+    vetor = heapsort(vetor);
+    vetor2 = heapsort(vetor2);
     for (int i = 0; i < vetor.length; i++) {
 
       System.out.println(vetor[i]);
 
+    }
+
+    for (int i = 0; i < vetor2.length; i++) {
+      System.out.println(vetor2[i]);
     }
   }
 
