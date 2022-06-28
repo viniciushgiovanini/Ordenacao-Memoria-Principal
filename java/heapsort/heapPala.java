@@ -1,4 +1,6 @@
-public class PALAVRASCRESCENTES {
+package heapsort;
+
+public class heapPala {
   public static int palavrasCRESCENTES(String um, String dois) {// Se as 2 Strings for igual retorna 2;
     // Se a primeira String for mais proxima de A do que a segunda retorna 0;
     // Se a primeira String estiver mais longe de A do que a segunda retorna 1;
@@ -111,27 +113,87 @@ public class PALAVRASCRESCENTES {
 
   }
 
+  public static void swap(String[] vetor, int posi1, int posi2) {
+
+    String tmp;
+
+    tmp = vetor[posi1];
+    vetor[posi1] = vetor[posi2];
+    vetor[posi2] = tmp;
+
+  }
+
+  public static String[] heapsort(String[] array) {
+    int n = array.length;
+    // Alterar o vetor ignorando a posicao zero
+    String[] tmp = new String[n + 1];
+    for (int i = 0; i < n; i++) {
+      tmp[i + 1] = array[i];
+    }
+    array = tmp;
+
+    // Contrucao do heap
+    for (int tamHeap = 2; tamHeap <= n; tamHeap++) {
+      construir(tamHeap, array);
+    }
+
+    // Ordenacao propriamente dita
+    int tamHeap = n;
+    while (tamHeap > 1) {
+      swap(array, 1, tamHeap--);
+      reconstruir(tamHeap, array);
+    }
+
+    // Alterar o vetor para voltar a posicao zero
+    tmp = array;
+    array = new String[n];
+    for (int i = 0; i < n; i++) {
+      array[i] = tmp[i + 1];
+    }
+
+    return array;
+  }
+
+  public static void construir(int tamHeap, String[] array) {
+    for (int i = tamHeap; i > 1 && (palavrasCRESCENTES(array[i], array[i / 2]) == 1); i /= 2) {
+      swap(array, i, i / 2);
+    }
+  }
+
+  public static void reconstruir(int tamHeap, String[] array) {
+    int i = 1;
+    while (i <= (tamHeap / 2)) {
+      int filho = getMaiorFilho(i, tamHeap, array);
+      if ((palavrasCRESCENTES(array[i], array[filho]) == 0)) {
+        swap(array, i, filho);
+        i = filho;
+      } else {
+        i = tamHeap;
+      }
+    }
+  }
+
+  public static int getMaiorFilho(int i, int tamHeap, String[] array) {
+    int filho;
+    if (2 * i == tamHeap || (palavrasCRESCENTES(array[2 * i], array[2 * i + 1]) == 1)) {
+      filho = 2 * i;
+    } else {
+      filho = 2 * i + 1;
+    }
+    return filho;
+  }
+
   public static void main(String[] args) {
+    String[] arrayzinho = new String[] { "cruzeiro", "atletico", "america", "athletico", "avai", "botafogo",
+        "bragantino", "ceara", "corinthians", "coritiba", "saopaulo", "santos", "juventude", "palmeiras", "goais",
+        "internacional", "fluminense", "fortaleza", "cuiaba", "flamengo", "sport", "tombense", "vila nova", "vasco",
+        "novorizontino", "operario", "ponte preta", "sampaio", "londrina", "nautico", "cruzeiro", "gremio", "guarani",
+        "ituano", "criciuma", "chapecoense", "csa", "crb", "brusque", "bahia", "atleticogo" };
 
-    String um = "atleticogo";
-    String dois = "atletico";
+    arrayzinho = heapsort(arrayzinho);
 
-    String a = "Cruzeiro";
-    String b = "Internacional";
-
-    int resp = palavrasCRESCENTES(um, dois);
-    int resp2 = palavrasCRESCENTES(b, a);
-
-    /*
-     * 1. Quando A o primeiro parametro foi mais perto do top da tabela da ordem
-     * alfabetica e o segundo parametro não for igual ou acima RETORNA 0;
-     * 2. Quando o primeiro parametro foi igual ao segundo RETORNA 2
-     * 3. Quando o Segundo parametro for mais proxima do top da tabela de ordem
-     * alfabetica que o primeiro retorna 0
-     */
-
-    System.out.println(resp);
-    System.out.println(resp2);
-
+    for (int i = 0; i < arrayzinho.length; i++) {
+      System.out.println(arrayzinho[i]);
+    }
   }
 }
