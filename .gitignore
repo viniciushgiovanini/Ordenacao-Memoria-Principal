@@ -23,5 +23,11 @@
 hs_err_pid*
 replay_pid*
 
+#vscode
+/.vscode/
+
 #my
 helloworld.cs
+/obj/
+*.csproj
+Program.cs
