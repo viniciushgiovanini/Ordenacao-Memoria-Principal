@@ -38,10 +38,12 @@ class heapNum {
 
     // Alterar o vetor para voltar a posicao zero
     tmp = array;
-    array = new int[n];
+    int[] array2 = new int[n];
     for (int i = 0; i < n; i++) {
-      array[i] = tmp[i + 1];
+      array2[i] = tmp[i + 1];
     }
+    array = array2;
+    System.out.println("Acabou Ordenação do Heap");
   }
 
   public static void construir(int tamHeap, int[] array) {
@@ -74,7 +76,7 @@ class heapNum {
   }
 
   public static void main(String[] args) {
-    int vetor[] = { 100, 200, 300, 40, 30, 25, 1, 45, 0, 8, 5, 2, 6, 1, 0 };
+    int[] vetor = new int[] { 101, 115, 30, 63, 47, 20 };
 
     heapsort(vetor);
 
