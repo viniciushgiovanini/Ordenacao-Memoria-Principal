@@ -1,20 +1,47 @@
 class Program
 {
+
+
+  public static void heapsortPalavra(String[] vetor)
+  {
+    PC pala = new PC();
+    CGimprimir<String> imprimirString = new CGimprimir<String>();
+    heapsortPala Hpala = new heapsortPala();
+    vetor = Hpala.heapsort(vetor, pala);
+    imprimirString.imprimirNum(vetor);
+  }
+  public static void heapsortNumerico(int[] vetor)
+  {
+    CGimprimir<int> imprimirInt = new CGimprimir<int>();
+    heapsortNum heap = new heapsortNum();
+    vetor = heap.heapsort(vetor);
+    imprimirInt.imprimirNum(vetor);
+
+
+  }
+
+  //----------Métodos de Ordenação do QUICKSORT----------//
+  public static void quicksortPalavra(String[] vetor)
+  {
+    PC pala = new PC();
+    quicksortPala quickPala = new quicksortPala();
+    CGimprimir<String> imprimirString = new CGimprimir<String>();
+    quickPala.quicksort(0, vetor.Length - 1, vetor, pala);
+    imprimirString.imprimirNum(vetor);
+  }
+
+  public static void quicksortNum(int[] vetor)
+  {
+    CGimprimir<int> imprimirInt = new CGimprimir<int>();
+    quicksortNum quick = new quicksortNum();
+    quick.quicksort(0, vetor.Length - 1, vetor);
+    imprimirInt.imprimirNum(vetor);
+  }
+
+
   public static void Main()
   {
-    //Classes de Ordenação
-    quicksortNum quick = new quicksortNum();
-    quicksortPala quickPala = new quicksortPala();
-
-
-    //Classe Generica de Impressao
-    CGimprimir<int> imprimirInt = new CGimprimir<int>();
-    CGimprimir<String> imprimirString = new CGimprimir<String>();
-
-
-    //Classe da Função palavrasCRESCENTES
     PC pala = new PC();
-
 
     String[] vetor = new String[] { "cruzeiro", "atletico", "america", "athletico", "avai", "botafogo",
         "bragantino", "ceara", "corinthians", "coritiba", "saopaulo", "santos", "juventude", "palmeiras", "goais",
@@ -26,16 +53,23 @@ class Program
     String b = "Internacional";
 
     System.Console.WriteLine(pala.palavrasCRESCENTES(a, b));
+
     int[] vetorNum = { 100, 200, 300, 40, 30, 25, 1, 45, 0, 8, 5, 2, 6, 1, 0 };
 
+    //Chamando quicksortNumerico
+    //quicksortNum(vetorNum);
 
-    // quick.quicksort(0, vetorNum.Length - 1, vetorNum);
+    //Chamando quicksortPalavra
+    //quicksortPalavra(vetor);
 
-    // imprimirInt.imprimirNum(vetorNum);
+    //Chamando heapsortNumerico
+    //heapsortNumerico(vetorNum);
 
-    quickPala.quicksort(0, vetor.Length - 1, vetor, pala);
+    //Chamando heapsortPalavra
+    // heapsortPalavra(vetor);
 
-    imprimirString.imprimirNum(vetor);
+
+
 
     System.Console.WriteLine("Meu primeiro programa em C#");
   }

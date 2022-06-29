@@ -1,6 +1,6 @@
 class quicksortPala
 {
-  public void swap(String[] vetor, int posi1, int posi2)
+  private void swap(String[] vetor, int posi1, int posi2)
   {
     String tmp;
     tmp = vetor[posi1];

@@ -1,7 +1,7 @@
 class quicksortNum
 {
 
-  public void swap(int[] vetor, int posi1, int posi2)
+  private void swap(int[] vetor, int posi1, int posi2)
   {
     int tmp;
     tmp = vetor[posi1];
