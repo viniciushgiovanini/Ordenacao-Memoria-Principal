@@ -10,7 +10,13 @@
 - QuickSort  
 - HeapSort  
 - MergeSort  
- 
+
+## Documentos e Dicas sobre Complexidade (BIG-O)
+
+- Os documentos estão no Link, e o doc das dicas de Complexidade é o **README.md** dessa pasta.  
+
+- [Clique Aqui para ir Para a pasta](https://github.com/viniciushgiovanini/Ordenacao-Memoria-Principal/tree/main/docs)
+
 ## Linguagens
          
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="50px"/>&nbsp;
