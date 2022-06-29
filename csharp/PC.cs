@@ -1,8 +1,6 @@
-
-class Program
+class PC
 {
-  //palavrasCRESCENTES funcionando em csharp
-  public static int palavrasCRESCENTES(String um, String dois)
+  public int palavrasCRESCENTES(String um, String dois)
   {
     char[] letraSTR1 = new char[50];
     letraSTR1 = um.ToCharArray();
@@ -92,24 +90,5 @@ class Program
 
 
     return resp;
-  }
-
-
-  public static void Main()
-  {
-    String[] vetor = new String[] { "cruzeiro", "atletico", "america", "athletico", "avai", "botafogo",
-        "bragantino", "ceara", "corinthians", "coritiba", "saopaulo", "santos", "juventude", "palmeiras", "goais",
-        "internacional", "fluminense", "fortaleza", "cuiaba", "flamengo", "sport", "tombense", "vila nova", "vasco",
-        "novorizontino", "operario", "ponte preta", "sampaio", "londrina", "nautico", "cruzeiro", "gremio", "guarani",
-        "ituano", "criciuma", "chapecoense", "csa", "crb", "brusque", "bahia", "atleticogo" };
-
-    String a = "Cruzeiro";
-    String b = "Internacional";
-
-    PC ordernarP = new PC();
-
-    System.Console.WriteLine(ordernarP.palavrasCRESCENTES(a, b));
-
-    System.Console.WriteLine("Meu primeiro programa em C#");
   }
 }
