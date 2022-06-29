@@ -1,13 +1,10 @@
-public class PALAVRASCRESCENTES {
+package mergesort;
+
+public class mergesortPala {
+
   public static int palavrasCRESCENTES(String um, String dois) {// Se as 2 Strings for igual retorna 2;
     // Se a primeira String for mais proxima de A do que a segunda retorna 0;
     // Se a primeira String estiver mais longe de A do que a segunda retorna 1;
-
-    // BUG DA FUNCAO <------------------ // ESSA FUNCAO COMPARA CADA CARACTER
-    // ATRAVES DA TABELA ASCII, NA TABELA AS LETRA MAISUCULAS OCUPAM UM VALOR MENOR
-    // QUE AS MINUSCULAS, DESSA MANEIRA A FUNCAO SEMPRE VAI JOGAR PALAVRAS
-    // MAIUSCULAS NA FRENTE DE MINUSCULAS. // PARA CORRIGIR EU TERIA QUE CRIAR MEU
-    // PROPRIO ARRAY DE CARACTERES.
 
     char[] letraSTR1 = new char[50];
     letraSTR1 = um.toCharArray();
@@ -117,33 +114,90 @@ public class PALAVRASCRESCENTES {
 
   }
 
+  public static void swap(String[] vetor, int posi1, int posi2) {
+
+    String tmp;
+
+    tmp = vetor[posi1];
+    vetor[posi1] = vetor[posi2];
+    vetor[posi2] = tmp;
+
+  }
+
+  private static void mergesort(int esq, int dir, String[] array) {
+    if (esq < dir) {
+      int meio = (esq + dir) / 2;
+      mergesort(esq, meio, array);
+      mergesort(meio + 1, dir, array);
+      intercalar(esq, meio, dir, array);
+    }
+  }
+
+  /**
+   * Algoritmo que intercala os elementos entre as posicoes esq e dir
+   * 
+   * @param int esq inicio do array a ser ordenado
+   * @param int meio posicao do meio do array a ser ordenado
+   * @param int dir fim do array a ser ordenado
+   */
+  public static void intercalar(int esq, int meio, int dir, String[] array) {
+    int n1, n2, i, j, k;
+
+    // Definir tamanho dos dois subarrays
+    n1 = meio - esq + 1;
+    n2 = dir - meio;
+
+    String[] a1 = new String[n1 + 1];
+    String[] a2 = new String[n2 + 1];
+
+    // Inicializar primeiro subarray
+    for (i = 0; i < n1; i++) {
+      a1[i] = array[esq + i];
+    }
+
+    // Inicializar segundo subarray
+    for (j = 0; j < n2; j++) {
+      a2[j] = array[meio + j + 1];
+    }
+
+    // Sentinela no final dos dois arrays
+    a1[i] = a2[j] = "Ó";// TEM QUE SER A ULTIMA PALAVRA DA TABELA ASCII
+    // Intercalacao propriamente dita
+    for (i = j = 0, k = esq; k <= dir; k++) {
+
+      array[k] = ((palavrasCRESCENTES(a1[i], a2[j]) == 0 || (palavrasCRESCENTES(a1[i], a2[j]) == 2)) ? a1[i++]
+          : a2[j++]);
+    }
+
+  }
+
   public static void main(String[] args) {
-
-    String um = "atleticogo";
-    String dois = "atletico";
-
-    String a = "Cruzeiro";
-    String b = "Internacional";
-
-    // String ze = "zebra";
-    // String zz = "ZZZZZZZZZZ";
-
-    int resp = palavrasCRESCENTES(um, dois);
-    int resp2 = palavrasCRESCENTES(b, a);
-    // int resp3 = palavrasCRESCENTES(ze, zz); --> BUG ENCONTRADO NA FUNCAO
-    // palavrasCRESCENTES.
+    String[] arrayzinho = new String[] { "cruzeiro", "atletico", "america", "athletico", "avai", "botafogo",
+        "bragantino", "ceara", "corinthians", "coritiba", "saopaulo", "santos", "juventude", "palmeiras", "goais",
+        "internacional", "fluminense", "fortaleza", "cuiaba", "flamengo", "sport", "tombense", "vila nova", "vasco",
+        "novorizontino", "operario", "ponte preta", "sampaio", "londrina", "nautico", "cruzeiro", "gremio", "guarani",
+        "ituano", "criciuma", "chapecoense", "csa", "crb", "brusque", "bahia", "atleticogo" };
 
     /*
-     * 1. Quando A o primeiro parametro foi mais perto do top da tabela da ordem
-     * alfabetica e o segundo parametro não for igual ou acima RETORNA 0;
-     * 2. Quando o primeiro parametro foi igual ao segundo RETORNA 2
-     * 3. Quando o Segundo parametro for mais proxima do top da tabela de ordem
-     * alfabetica que o primeiro retorna 1
+      
      */
+    String[] arrayzinho2 = new String[] { "zebra", "baba", "gado", "aba" };
 
-    System.out.println(resp);
-    System.out.println(resp2);
-    // System.out.println(resp3);
+    mergesort(0, arrayzinho.length - 1, arrayzinho);
+
+    for (int i = 0; i < arrayzinho.length; i++) {
+
+      System.out.println(arrayzinho[i]);
+
+    }
+
+    System.out.println("X------ARRAYZINHO------X");
+
+    mergesort(0, arrayzinho2.length - 1, arrayzinho2);
+
+    for (int i = 0; i < arrayzinho2.length; i++) {
+      System.out.println(arrayzinho2[i]);
+    }
 
   }
 }
