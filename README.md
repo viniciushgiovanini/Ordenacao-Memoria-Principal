@@ -15,7 +15,7 @@
 
 - Os documentos estão no Link, e o doc das dicas de Complexidade é o **README.md** dessa pasta.  
 
-- [Clique Aqui para ir Para a pasta](https://github.com/viniciushgiovanini/Ordenacao-Memoria-Principal/tree/main/docs)
+- Pasta com os Docs e Resumo de Complexidade [AQUI](https://github.com/viniciushgiovanini/Ordenacao-Memoria-Principal/tree/main/docs) 
 
 ## Linguagens
          
