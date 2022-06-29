@@ -2,6 +2,18 @@ class Program
 {
 
 
+  public static void mergesortNum(int[] vetor)
+  {
+
+    mergeNum msN = new mergeNum();
+    CGimprimir<int> imprimirInt = new CGimprimir<int>();
+
+    msN.mergesort(0, vetor.Length - 1, vetor);
+    imprimirInt.imprimirNum(vetor);
+  }
+
+
+  //----------Métodos de Ordenação do HEAPSORT----------//
   public static void heapsortPalavra(String[] vetor)
   {
     PC pala = new PC();
@@ -68,6 +80,8 @@ class Program
     //Chamando heapsortPalavra
     // heapsortPalavra(vetor);
 
+    //Chamando mergesorteNumerico
+    //mergesortNum(vetorNum);
 
 
 
