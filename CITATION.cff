@@ -1,0 +1,15 @@
+abstract: |
+    "Repositório de Analíse e Implementação dos Principais Algoritmos de Ordenação em Memória Principal"
+authors: 
+  - 
+    family-names: "Henrique Giovanini"
+    given-names: Vinícius
+cff-version: "1.0"
+keywords: 
+  - "Ordernação em Memoria Principal"
+  - C#
+  - Java
+message: |
+    Se você utilizar este repositório, por favor cite-o utilizando estes metadados."
+repository-code: "https://github.com/viniciushgiovanini/Ordenacao-Memoria-Principal"
+title: "Ordenacao Memoria Principal"
