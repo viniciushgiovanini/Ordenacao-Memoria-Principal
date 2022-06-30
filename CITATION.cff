@@ -9,9 +9,9 @@ keywords:
   - "Ordernação em Memoria Principal"
   - C#
   - Java
-  - Mergesort
-  - Quicksort
-  - Heapsort
+  - "Mergesort"
+  - "Quicksort"
+  - "Heapsort"
 message: |
     "Se você utilizar este repositório, por favor cite-o utilizando estes metadados."
 repository-code: "https://github.com/viniciushgiovanini/Ordenacao-Memoria-Principal"
